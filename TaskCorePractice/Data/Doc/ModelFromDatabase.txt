@@ -1,0 +1,2 @@
+﻿-Podemos crear el modelo en nuestra aplicacion y especificar las tablas que queremos modelar en el atributo  talbe:
+	Scaffold-DbContext "Server=AR-IT03352\SQLEXPRESS;Database=TaskCorePracticDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables User

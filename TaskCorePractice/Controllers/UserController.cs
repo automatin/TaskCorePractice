@@ -11,7 +11,7 @@ namespace TaskCorePractice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : Controller
     {
         private ApplicationDbContext _context;
         public UserController(ApplicationDbContext context)
@@ -19,12 +19,12 @@ namespace TaskCorePractice.Controllers
             _context = context;
         }
 
-        // GET: api/User
         [HttpGet]
-        public List<User> Get()
+        public ActionResult 
+        Details()
         {
             IQueryable<User> UsersQuery = from m in _context.Users where m.Id > 0 select m;
-            return UsersQuery as List<User>;
+            return View(UsersQuery);
         }
 
         // GET: api/User/5

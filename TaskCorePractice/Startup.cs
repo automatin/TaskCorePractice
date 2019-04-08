@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TaskCorePractice.Data;
+using TaskCorePractice.Models;
 
 namespace TaskCorePractice
 {
@@ -32,11 +32,11 @@ namespace TaskCorePractice
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            
+
             //For setting the connection string:
-            services.AddDbContext<ApplicationDbContext>( options =>
-                options.UseSqlServer(Configuration.GetConnectionString("TaskDatabaseConnection")));
-             
+            services.AddDbContext<TaskCorePracticDBContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("TaskDatabaseConnection")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
