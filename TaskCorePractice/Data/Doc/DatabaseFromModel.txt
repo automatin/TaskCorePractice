@@ -1,0 +1,8 @@
+﻿To create the tables/database from the model, use the follow commands on Package Manager Console
+
+-Run "Add-Migration InitialCreate" to scaffold a migration to create the initial set of tables for the model.
+-Run "Update-Database" to apply the new migration to the database. Because the database doesn't exist yet, it will be created before the migration is applied.
+
+Tip
+If you make changes to the model, you can use the Add-Migration command to scaffold a new migration to make the corresponding schema changes to the database. Once you have checked the scaffolded code (and made any required changes), you can use the Update-Database command to apply the changes to the database. 
+EF uses a __EFMigrationsHistory table in the database to keep track of which migrations have already been applied to the database.

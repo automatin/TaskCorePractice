@@ -4,27 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TaskCorePractice.Data;
-using TaskCorePractice.Models;
 
 namespace TaskCorePractice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : Controller
+    public class UserController : ControllerBase
     {
-        private ApplicationDbContext _context;
-        public UserController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
+        // GET: api/User
         [HttpGet]
-        public ActionResult 
-        Details()
+        public IEnumerable<string> Get()
         {
-            IQueryable<User> UsersQuery = from m in _context.Users where m.Id > 0 select m;
-            return View(UsersQuery);
+            return new string[] { "value1", "value2" };
         }
 
         // GET: api/User/5
